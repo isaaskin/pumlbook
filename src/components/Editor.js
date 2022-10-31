@@ -52,6 +52,16 @@ const Editor = (props) => {
       '&': { height: '100%' },
       '&.cm-editor.cm-focused': {
         outline: 'none'
+      },
+      '.cm-content': {
+        color: '#F2F2F2',
+        caretColor: '#abcdef',
+        backgroundColor: '#333333'
+      },
+      '.cm-gutters': {
+        backgroundColor: '#3D138D',
+        color: '#fff',
+        border: 'none'
       }
     })
 
