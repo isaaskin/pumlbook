@@ -2,10 +2,21 @@
 import { Box, Grommet } from 'grommet'
 import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setUrl, setPercentage, setTriggerCodeLoad } from '../slices/runSlice'
+import { setUrl, setPercentage, setTriggerCodeLoad, setSavedData } from '../slices/runSlice'
 import * as PlantUmlEncoder from 'plantuml-encoder'
 import Header from './Header'
 import Main from './Main'
+import { loadProjects, saveProject } from '../app/helpers'
+
+const theme = {
+  global: {
+    focus: {
+      outline: {
+        color: 'accent-3'
+      }
+    }
+  }
+}
 
 const PumlBook = (props) => {
   const code = useSelector(state => state.run.code)
@@ -14,6 +25,7 @@ const PumlBook = (props) => {
   const refInterval = useRef(null)
   const dispatch = useDispatch()
   const isFirstPublished = useRef(false)
+  const didLoad = useRef(false)
 
   const onPlayButtonClicked = () => {
     if (!isAutoModeEnabled) {
@@ -21,9 +33,21 @@ const PumlBook = (props) => {
     }
   }
 
+  const onSave = (projectName) => {
+    saveProject(projectName, code)
+    dispatch(setSavedData(loadProjects()))
+  }
+
   const publishUrl = () => {
     dispatch(setUrl(`http://www.plantuml.com/plantuml/svg/${PlantUmlEncoder.encode(code)}`))
   }
+
+  useEffect(() => {
+    if (!didLoad.current) {
+      didLoad.current = true
+      dispatch(setSavedData(loadProjects()))
+    }
+  }, [])
 
   useEffect(() => {
     if (triggerCodeLoad) {
@@ -56,9 +80,10 @@ const PumlBook = (props) => {
   }, [code, dispatch, isAutoModeEnabled])
 
   return (
-    <Grommet full>
+    <Grommet full theme={theme}>
       <Box fill>
-        <Header onPlayButtonClicked={onPlayButtonClicked}></Header>
+        <Header onPlayButtonClicked={onPlayButtonClicked}
+          onSave={onSave}></Header>
         <Main></Main>
       </Box>
     </Grommet>

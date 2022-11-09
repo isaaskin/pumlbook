@@ -7,7 +7,7 @@ const Output = (props) => {
 
   return (
     <Box overflow="auto">
-      <Image src={url}></Image>
+      <Image src={url} fit="contain"></Image>
     </Box>
   )
 }

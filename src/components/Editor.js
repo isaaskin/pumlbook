@@ -18,6 +18,7 @@ const Editor = (props) => {
   const dispatch = useDispatch()
 
   const codeToBeLoaded = useSelector(state => state.run.codeToBeLoaded)
+  const code = useSelector(state => state.run.code)
 
   const updateEditor = (value) => {
     const state = refEditor.current.state
@@ -36,7 +37,7 @@ const Editor = (props) => {
   }, [codeToBeLoaded])
 
   useEffect(() => {
-    if (codeValue === '') {
+    if (codeValue === '' || codeValue === code) {
       return
     }
     saveCode(codeValue)
@@ -49,18 +50,23 @@ const Editor = (props) => {
     }
 
     const theme = EditorView.theme({
-      '&': { height: '100%' },
+      '&': {
+        height: '100%',
+        backgroundColor: '#0C0C0C'
+      },
       '&.cm-editor.cm-focused': {
         outline: 'none'
       },
       '.cm-content': {
-        color: '#F2F2F2',
-        caretColor: '#abcdef',
-        backgroundColor: '#333333'
+        color: '#6FFFB0'
+      },
+      '&.cm-focused .cm-selectionBackground, ::selection': {
+        backgroundColor: '#FFCA58',
+        color: '#555555'
       },
       '.cm-gutters': {
-        backgroundColor: '#3D138D',
-        color: '#fff',
+        backgroundColor: '#81FCED',
+        color: '#333333',
         border: 'none'
       }
     })

@@ -5,7 +5,8 @@ export const mainSlice = createSlice({
   initialState: {
     isSideMenuOpen: false,
     savedBooks: [],
-    isAutoModeEnabled: false
+    isAutoModeEnabled: false,
+    isSaveDropOpen: false
   },
   reducers: {
     toggleAutoMode: (state) => {
@@ -16,10 +17,17 @@ export const mainSlice = createSlice({
     },
     initSavedBooks: (state, action) => {
       state.savedBooks = action.payload
+    },
+    toggleIsSaveDropOpen: (state, action) => {
+      if (action.payload !== undefined) {
+        state.isSaveDropOpen = action.payload
+        return
+      }
+      state.isSaveDropOpen = !state.isSaveDropOpen
     }
   }
 })
 
-export const { toggleSideMenu, initSavedBooks, toggleAutoMode } = mainSlice.actions
+export const { toggleSideMenu, initSavedBooks, toggleAutoMode, toggleIsSaveDropOpen } = mainSlice.actions
 
 export default mainSlice.reducer

@@ -1,84 +1,131 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Box, Button, Meter, Stack, Text } from 'grommet'
+import { Box, Button, Drop, Meter, Stack, Text, TextInput } from 'grommet'
 import { Alarm, Disc, Play, Robot, Vend } from 'grommet-icons'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleAutoMode, toggleSideMenu } from '../slices/mainSlice'
+import { toggleAutoMode, toggleIsSaveDropOpen, toggleSideMenu } from '../slices/mainSlice'
 
 import ActionButton from './ActionButton'
 
 import PropTypes from 'prop-types'
-import { saveProject } from '../app/helpers'
+import { useRef, useState } from 'react'
 
-const Header = ({ onPlayButtonClicked }) => {
+const Header = ({ onPlayButtonClicked, onSave }) => {
   const isSideMenuOpen = useSelector(state => state.main.isSideMenuOpen)
   const isAutoModeEnabled = useSelector(state => state.main.isAutoModeEnabled)
+  const isSaveDropOpen = useSelector(state => state.main.isSaveDropOpen)
   const percentage = useSelector(state => state.run.percentage)
+
+  const refSaveButton = useRef()
+
+  const [projectName, setProjectName] = useState('')
 
   const dispatch = useDispatch()
 
+  const onSaveButtonClicked = () => {
+    onSave(projectName)
+    dispatch(toggleIsSaveDropOpen(false))
+    setProjectName('')
+  }
+
+  const onKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      onSaveButtonClicked()
+    }
+  }
+
   return (
-    <Box background="graph-2"
-      height="57px"
+    <Box background="dark-1"
+      height="56px"
       flex={false}
       direction="row"
       justify="between">
-      <Box width="small"
+      <Box width="medium"
         justify="start"
         align="center"
         direction="row"
-        gap="small"
+        gap="medium"
+        pad="small"
       >
         <ActionButton
           icon={<Vend />}
           label="Load"
           onClick={() => dispatch(toggleSideMenu())}
-          {...(isSideMenuOpen ? { color: 'yellow' } : {})}
+          {...(isSideMenuOpen ? { color: 'accent-3' } : {})}
         ></ActionButton>
         <ActionButton
           icon={<Disc />}
           label="Save"
-          onClick={() => saveProject('test', 'aasdasdasd')}
-        ></ActionButton>
+          onClick={() => dispatch(toggleIsSaveDropOpen())}
+          {...(isSaveDropOpen ? { color: 'accent-3' } : {})}
+          ref={refSaveButton}
+        >
+        </ActionButton>
         <ActionButton
           icon={<Robot />}
           label={'Auto'}
           onClick={() => dispatch(toggleAutoMode())}
-          {...(isAutoModeEnabled ? { color: 'status-ok' } : {})}
+          {...(isAutoModeEnabled ? { color: 'accent-3' } : {})}
         ></ActionButton>
+        {refSaveButton.current && isSaveDropOpen &&
+          <Drop
+            target={refSaveButton.current}
+            align={{ top: 'bottom', left: 'left' }}
+            onClickOutside={() => dispatch(toggleIsSaveDropOpen(false))}
+            onEsc={() => dispatch(toggleIsSaveDropOpen(false))}
+          >
+            <Box background="dark-1"
+              pad="small"
+              gap="small">
+              <TextInput
+                placeholder="project name"
+                value={projectName}
+                onChange={event => setProjectName(event.target.value)}
+                onKeyDown={onKeyDown}
+              />
+              <Button label="Save"
+                color="accent-3"
+                onClick={onSaveButtonClicked}></Button>
+            </Box>
+          </Drop>
+        }
       </Box>
       <Box width="small"
         justify="center"
-        align="center">
+        align="center"
+      >
         {isAutoModeEnabled
           ? <Stack anchor="center">
             <Box>
               <Meter type="circle"
                 size="xxsmall"
                 thickness="xxsmall"
-                value={percentage} />
+                value={percentage}
+                color="accent-3" />
             </Box>
             <Box>
               <Alarm />
             </Box>
           </Stack>
-          : <Button align="center"
-            ustify="center"
+          : <Button
             icon={<Play />}
             onClick={onPlayButtonClicked}
           ></Button>
         }
       </Box>
-      <Box width="small"
-        align="center"
-        justify="center">
+      <Box width="medium"
+        align="end"
+        justify="center"
+        pad="small">
         <Text>Puml Book</Text>
+        <Text size="small">v{process.env.REACT_APP_VERSION}</Text>
       </Box>
     </Box>
   )
 }
 
 Header.propTypes = {
-  onPlayButtonClicked: PropTypes.func
+  onPlayButtonClicked: PropTypes.func,
+  onSave: PropTypes.func
 }
 
 export default Header

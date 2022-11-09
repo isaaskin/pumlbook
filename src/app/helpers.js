@@ -7,7 +7,8 @@ const loadCode = () => {
 }
 
 const loadProjects = () => {
-  if (localStorage.getItem('projects') === '') {
+  const projectName = localStorage.getItem('projects')
+  if (projectName === '' || projectName === null) {
     return []
   }
   return JSON.parse(localStorage.getItem('projects'))
@@ -15,9 +16,13 @@ const loadProjects = () => {
 
 const saveProject = (name, code) => {
   localStorage.setItem('projects', JSON.stringify([
-    ...loadProjects(),
-    { name, code }
+    { name, code },
+    ...loadProjects()
   ]))
 }
 
-export { saveCode, loadCode, loadProjects, saveProject }
+const removeProject = (name) => {
+  localStorage.setItem('projects', JSON.stringify(loadProjects().filter(p => p.name !== name)))
+}
+
+export { saveCode, loadCode, loadProjects, saveProject, removeProject }

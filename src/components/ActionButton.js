@@ -1,13 +1,18 @@
+/* eslint-disable react/display-name */
 /* eslint-disable react/react-in-jsx-scope */
 import { Box, Text } from 'grommet'
-import { cloneElement } from 'react'
+import { cloneElement, forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
-const ActionButton = ({ icon, label, onClick, color }) => {
+const ActionButton = forwardRef(({ icon, label, onClick, color }, ref) => {
   return (
     <Box direction="column"
       focusIndicator={false}
       onClick={onClick}
+      hoverIndicator={{
+        color: ''
+      }}
+      ref={ref}
     >
       <Box align="center" color="yellow">
         {color !== undefined
@@ -20,7 +25,7 @@ const ActionButton = ({ icon, label, onClick, color }) => {
       </Box>
     </Box>
   )
-}
+})
 
 ActionButton.propTypes = {
   icon: PropTypes.element.isRequired,
