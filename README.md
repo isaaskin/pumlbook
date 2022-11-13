@@ -18,6 +18,7 @@ https://pumlbook.netlify.com
 - Automatic rendering mode
 - Save and load PlantUML drawings locally
 - Simple and plain UI
+- Saves last session
 
 
 ## Available Scripts
