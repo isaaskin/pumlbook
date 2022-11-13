@@ -1,8 +1,8 @@
 /* eslint-disable react/react-in-jsx-scope */
 import './App.css'
 import { Provider } from 'react-redux'
-import store from './app/store'
 import PumlBook from './components/PumlBook'
+import store from './app/store'
 
 function App () {
   return (

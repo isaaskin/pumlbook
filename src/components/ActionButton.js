@@ -9,12 +9,9 @@ const ActionButton = forwardRef(({ icon, label, onClick, color }, ref) => {
     <Box direction="column"
       focusIndicator={false}
       onClick={onClick}
-      hoverIndicator={{
-        color: ''
-      }}
       ref={ref}
     >
-      <Box align="center" color="yellow">
+      <Box align="center">
         {color !== undefined
           ? cloneElement(icon, { color })
           : icon

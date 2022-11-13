@@ -1,14 +1,14 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { basicSetup, EditorView } from 'codemirror'
+import { EditorView, basicSetup } from 'codemirror'
 import { keymap } from '@codemirror/view'
 
-import { EditorState, Compartment } from '@codemirror/state'
-import { indentWithTab } from '@codemirror/commands'
 import { Box } from 'grommet'
-import { useEffect, useRef, useState } from 'react'
+import { Compartment, EditorState } from '@codemirror/state'
+import { indentWithTab } from '@codemirror/commands'
 import { loadCode, saveCode } from '../app/helpers'
-import { useDispatch, useSelector } from 'react-redux'
 import { setCode, setCodeToBeLoaded, setTriggerCodeLoad } from '../slices/runSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useRef, useState } from 'react'
 
 const loadedCode = loadCode()
 

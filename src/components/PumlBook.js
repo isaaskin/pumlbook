@@ -1,12 +1,12 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Box, Grommet } from 'grommet'
-import { useEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setUrl, setPercentage, setTriggerCodeLoad, setSavedData } from '../slices/runSlice'
 import * as PlantUmlEncoder from 'plantuml-encoder'
+import { Box, Grommet } from 'grommet'
+import { loadProjects, saveProject } from '../app/helpers'
+import { setPercentage, setSavedData, setTriggerCodeLoad, setUrl } from '../slices/runSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useRef } from 'react'
 import Header from './Header'
 import Main from './Main'
-import { loadProjects, saveProject } from '../app/helpers'
 
 const theme = {
   global: {

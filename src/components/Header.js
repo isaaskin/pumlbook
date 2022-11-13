@@ -1,13 +1,13 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Box, Button, Drop, Meter, Stack, Text, TextInput } from 'grommet'
 import { Alarm, Disc, Play, Robot, Vend } from 'grommet-icons'
-import { useDispatch, useSelector } from 'react-redux'
+import { Box, Button, Drop, Meter, Stack, Text, TextInput } from 'grommet'
 import { toggleAutoMode, toggleIsSaveDropOpen, toggleSideMenu } from '../slices/mainSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 import ActionButton from './ActionButton'
 
-import PropTypes from 'prop-types'
 import { useRef, useState } from 'react'
+import PropTypes from 'prop-types'
 
 const Header = ({ onPlayButtonClicked, onSave }) => {
   const isSideMenuOpen = useSelector(state => state.main.isSideMenuOpen)

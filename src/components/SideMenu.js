@@ -1,9 +1,9 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Box, Button, Card, CardBody, CardFooter, Text } from 'grommet'
 import * as Icons from 'grommet-icons'
-import { useDispatch, useSelector } from 'react-redux'
+import { Box, Button, Card, CardBody, CardFooter, Text } from 'grommet'
 import { loadProjects, removeProject } from '../app/helpers'
 import { setCodeToBeLoaded, setSavedData } from '../slices/runSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 const SideMenu = (props) => {
   const savedData = useSelector(state => state.run.savedData)
