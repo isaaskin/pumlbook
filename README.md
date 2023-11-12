@@ -19,6 +19,7 @@ https://pumlbook.netlify.com
 - Save and load PlantUML drawings locally
 - Simple and plain UI
 - Saves last session
+- Download code and SVG
 
 
 ## Available Scripts
