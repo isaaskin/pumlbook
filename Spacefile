@@ -1,5 +1,5 @@
 # Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
-v: 2
+v: 0
 app_name: "Pumlbook"
 micros:
     - name: pumlbook
