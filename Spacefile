@@ -2,7 +2,7 @@
 v: 0
 app_name: "Pumlbook"
 micros:
-    - name: pumlbook
-      src: ./
-      engine: react
-      primary: true
+  - name: pumlbook
+    src: ./
+    engine: react
+    primary: true
