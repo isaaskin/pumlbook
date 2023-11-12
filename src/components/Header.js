@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Alarm, Disc, Play, Robot, Vend } from 'grommet-icons'
+import { Alarm, Disc, Download, Play, Robot, Vend } from 'grommet-icons'
 import { Box, Button, Drop, Meter, Stack, Text, TextInput } from 'grommet'
 import { toggleAutoMode, toggleIsSaveDropOpen, toggleSideMenu } from '../slices/mainSlice'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,11 +9,15 @@ import ActionButton from './ActionButton'
 import { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
+import { saveAs } from 'file-saver'
+
 const Header = ({ onPlayButtonClicked, onSave }) => {
   const isSideMenuOpen = useSelector(state => state.main.isSideMenuOpen)
   const isAutoModeEnabled = useSelector(state => state.main.isAutoModeEnabled)
   const isSaveDropOpen = useSelector(state => state.main.isSaveDropOpen)
   const percentage = useSelector(state => state.run.percentage)
+  const url = useSelector(state => state.run.url)
+  const code = useSelector(state => state.run.code)
 
   const refSaveButton = useRef()
 
@@ -65,6 +69,24 @@ const Header = ({ onPlayButtonClicked, onSave }) => {
           label={'Auto'}
           onClick={() => dispatch(toggleAutoMode())}
           {...(isAutoModeEnabled ? { color: 'accent-3' } : {})}
+        ></ActionButton>
+        <ActionButton
+          icon={<Download />}
+          label={'SVG'}
+          onClick={() => {
+            fetch(url).then(r => r.text()).then(t => {
+              saveAs(new Blob([t], { type: 'image/svg+xml' }), 'chart.svg')
+            })
+          }}
+        ></ActionButton>
+        <ActionButton
+          icon={<Download />}
+          label={'Download'}
+          onClick={() => {
+            fetch(url).then(r => r.text()).then(t => {
+              saveAs(new Blob([code], { type: 'text/plain;charset=utf-8' }), 'code.puml')
+            })
+          }}
         ></ActionButton>
         {refSaveButton.current && isSaveDropOpen &&
           <Drop
