@@ -81,7 +81,7 @@ const Header = ({ onPlayButtonClicked, onSave }) => {
         ></ActionButton>
         <ActionButton
           icon={<Download />}
-          label={'Download'}
+          label={'Code'}
           onClick={() => {
             fetch(url).then(r => r.text()).then(t => {
               saveAs(new Blob([code], { type: 'text/plain;charset=utf-8' }), 'code.puml')
