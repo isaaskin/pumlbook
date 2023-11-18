@@ -83,9 +83,7 @@ const Header = ({ onPlayButtonClicked, onSave }) => {
           icon={<Download />}
           label={'Code'}
           onClick={() => {
-            fetch(url).then(r => r.text()).then(t => {
-              saveAs(new Blob([code], { type: 'text/plain;charset=utf-8' }), 'code.puml')
-            })
+            saveAs(new Blob([code], { type: 'text/plain;charset=utf-8' }), 'code.puml')
           }}
         ></ActionButton>
         {refSaveButton.current && isSaveDropOpen &&
