@@ -6,3 +6,4 @@ micros:
     src: ./
     engine: react
     primary: true
+    dev: npm run start

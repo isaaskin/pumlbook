@@ -39,7 +39,7 @@ const PumlBook = (props) => {
   }
 
   const publishUrl = () => {
-    dispatch(setUrl(`http://www.plantuml.com/plantuml/svg/${PlantUmlEncoder.encode(code)}`))
+    dispatch(setUrl(`https://www.plantuml.com/plantuml/svg/${PlantUmlEncoder.encode(code)}`))
   }
 
   useEffect(() => {
