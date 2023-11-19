@@ -137,7 +137,7 @@ const Header = ({ onPlayButtonClicked, onSave }) => {
         justify="center"
         pad="small">
         <Text>Puml Book</Text>
-        <Text size="small">v{process.env.REACT_APP_VERSION}</Text>
+        <Text size="small">v0.2.1</Text>
       </Box>
     </Box>
   )
