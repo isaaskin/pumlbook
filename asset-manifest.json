@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/isaaskin.github.io/pumlbook/static/css/main.dec0031a.css",
+    "main.js": "/isaaskin.github.io/pumlbook/static/js/main.a2e7a741.js",
+    "static/js/787.441c6b98.chunk.js": "/isaaskin.github.io/pumlbook/static/js/787.441c6b98.chunk.js",
+    "index.html": "/isaaskin.github.io/pumlbook/index.html",
+    "main.dec0031a.css.map": "/isaaskin.github.io/pumlbook/static/css/main.dec0031a.css.map",
+    "main.a2e7a741.js.map": "/isaaskin.github.io/pumlbook/static/js/main.a2e7a741.js.map",
+    "787.441c6b98.chunk.js.map": "/isaaskin.github.io/pumlbook/static/js/787.441c6b98.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dec0031a.css",
+    "static/js/main.a2e7a741.js"
+  ]
+}
