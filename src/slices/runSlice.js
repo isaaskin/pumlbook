@@ -9,7 +9,8 @@ export const runSlice = createSlice({
     url: '',
     triggerCodeLoad: false,
     savedData: [],
-    codeValue: ''
+    codeValue: '',
+    currentProjectId: null
   },
   reducers: {
     setPercentage: (state, action) => {
@@ -32,6 +33,9 @@ export const runSlice = createSlice({
     },
     setCodeValue: (state, action) => {
       state.codeValue = action.payload
+    },
+    setCurrentProjectId: (state, action) => {
+      state.currentProjectId = action.payload
     }
   }
 })
@@ -43,7 +47,8 @@ export const {
   setCodeToBeLoaded,
   setTriggerCodeLoad,
   setSavedData,
-  setCodeValue
+  setCodeValue,
+  setCurrentProjectId
 } = runSlice.actions
 
 export default runSlice.reducer

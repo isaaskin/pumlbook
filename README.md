@@ -1,66 +1,95 @@
+<div align="center">
 
-## Badges
+# 📘 PumlBook
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+**A premium, open-source PlantUML editor**
 
+Write, preview, and save UML diagrams — all in the browser.
 
-# PumlBook
+[![MIT License](https://img.shields.io/badge/License-MIT-00f2ff.svg?style=flat-square)](https://choosealicense.com/licenses/mit/)
+[![Version](https://img.shields.io/badge/version-1.0.0-00f2ff.svg?style=flat-square)](#)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/isaaskin/pumlbook/main.yml?style=flat-square&label=deploy&color=00f2ff)](https://github.com/isaaskin/pumlbook/actions)
 
-The PumlBook is a web application where PlantUML scripts can be written, previewed and saved locally in the browser.
+</div>
 
+---
 
-## Demo
+## ✨ Features
 
-https://pumlbook.netlify.com
+| Feature | Description |
+|---|---|
+| ⚡ **Auto-Render** | Diagrams update automatically as you type |
+| 🎨 **Syntax Highlighting** | Full PlantUML language support with Dracula-inspired colors |
+| 📂 **Project Management** | Save, load, rename, and delete projects — stored in localStorage |
+| 🧩 **Snippet Templates** | 9 built-in templates: Sequence, Class, Activity, ER, Gantt, Mind Map, and more |
+| 🎭 **Theme Switcher** | 8 PlantUML themes: Cerulean, Mars, Hacker, Blueprint, Sketchy, Materia, Superhero |
+| 📥 **Multi-Format Export** | Download as `.puml`, `.svg`, or `.png` |
+| ⌨️ **Keyboard Shortcuts** | Quick Save, Run, Save As — all from the keyboard |
+| 💥 **Power Mode** | Particle explosions on every keystroke |
+| 🎹 **ASMR Typing** | Satisfying synth sounds while you type |
+| 👾 **Matrix Rain** | Because why not |
+| 📱 **Responsive** | Fully responsive with a mobile hamburger menu |
+| 🔒 **Privacy-First** | All data stays in your browser. No accounts. No tracking. |
 
-## Features
+## 🚀 Getting Started
 
-- Automatic rendering mode
-- Save and load PlantUML drawings locally
-- Simple and plain UI
-- Saves last session
-- Download code and SVG
+```bash
+# Clone the repo
+git clone https://github.com/isaaskin/pumlbook.git
+cd pumlbook
 
+# Install dependencies
+npm install
 
-## Available Scripts
+# Start the dev server
+npm start
+```
 
-In the project directory, you can run:
+Open [http://localhost:3000](http://localhost:3000) to start diagramming.
 
-### `npm start`
+## ⌨️ Keyboard Shortcuts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Shortcut | Action |
+|---|---|
+| `Ctrl+S` / `⌘S` | Quick Save |
+| `Ctrl+Enter` / `⌘Enter` | Run Diagram |
+| `Ctrl+Shift+S` / `⌘⇧S` | Save As... |
+| `?` | Show shortcuts help |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Tech Stack
 
-### `npm test`
+- **React 18** — UI framework
+- **Redux Toolkit** — State management
+- **CodeMirror 6** — Code editor with custom PlantUML language mode
+- **PlantUML Server** — Remote rendering via `plantuml.com/plantuml`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📦 Building for Production
 
-### `npm run build`
+```bash
+npm run build
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The output is in the `build/` directory, ready to be deployed to any static hosting.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🌐 Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project auto-deploys to **GitHub Pages** on every push to `main` via GitHub Actions.
 
-### `npm run eject`
+To deploy your own fork:
+1. Go to **Settings → Pages** in your GitHub repo
+2. Set **Source** to "GitHub Actions"
+3. Push to `main` — the workflow handles the rest
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🤝 Contributing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Contributions are welcome! Here's how:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Fork the repo
+2. Create a feature branch (`git checkout -b feature/cool-thing`)
+3. Commit your changes (`git commit -m 'Add cool thing'`)
+4. Push to the branch (`git push origin feature/cool-thing`)
+5. Open a Pull Request
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📄 License
 
-
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://choosealicense.com/licenses/mit/) © isaaskin

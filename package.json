@@ -1,6 +1,7 @@
 {
   "name": "pumlbook",
-  "version": "0.2.1",
+  "version": "1.0.0",
+  "homepage": ".",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.5",
@@ -8,8 +9,6 @@
     "@testing-library/user-event": "^13.5.0",
     "codemirror": "^6.0.1",
     "file-saver": "^2.0.5",
-    "grommet": "^2.27.0",
-    "grommet-icons": "^4.8.0",
     "plantuml-encoder": "^1.4.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
